@@ -42,11 +42,9 @@ public class Network {
     *  If the given name is already a user in this network, does nothing and returns false;
     *  Otherwise, creates a new user with the given name, adds the user to this network, and returns true. */
     public boolean addUser(String name) {
-        char firstLetter = name.charAt(0);
-        String fixedName = Character.toUpperCase(firstLetter) + name.substring(1);
         
-        if (userCount <= users.length && getUser(fixedName) == null){
-            User newUser = new User(fixedName);
+        if (userCount <= users.length && getUser(name) == null){
+            User newUser = new User(name);
             users[userCount] = newUser;
             userCount++;
             return true;
