@@ -92,6 +92,9 @@ public class Network {
     public String mostPopularUser() {
         String popular = "";
         int count = 0;
+
+        if (userCount == 0) return "null";
+
         for (int i = 0; i < userCount; i++) {
             if (followeeCount(users[i].getName()) > count){
                 popular = users[i].getName();
@@ -115,9 +118,9 @@ public class Network {
 
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
-       String desc = "Network: \n";
+       String desc = "Network:";
        for (int i = 0; i < userCount; i++) {
-            if (users[i] != null) desc += "" + users[i] + "\n";
+            if (users[i] != null) desc += "\n" + users[i];
        }
        return desc;
     }
