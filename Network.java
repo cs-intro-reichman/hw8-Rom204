@@ -77,10 +77,11 @@ public class Network {
         String recommended = "";
 
         for (int i = 0; i < userCount; i++){
-            if (users[i].getName() == name) {
+            if (users[i].getName().equals(name)) {
                 continue;
             } else if (getUser(name).countMutual(users[i]) > max) {
                 recommended = users[i].getName();
+                max = getUser(name).countMutual(users[i]);
             }
         }
 
